@@ -44,6 +44,14 @@ void loop(){
     }
 
     DateTime dt = rtc.now();
+
+    if (dt.hour() >= 18 || dt.hour() <= 6){
+        d1.turn_off();
+        d2.turn_off();
+        
+        return;
+    }
+
     int32_t seconds_left = (target_dt - dt).totalseconds();
     if (seconds_left < 0){
         seconds_left = 0;
